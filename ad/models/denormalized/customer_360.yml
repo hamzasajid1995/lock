@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: customer_360
+    description: "Denormalized flat table providing a 360° view of customer data by joining CRM, billing, marketing, service, network, and support sources."
+    columns:
+      - name: CUSTOMER_ID
+        description: "Unique identifier for the customer."
+        tests:
+          - unique
+          - not_null
+      - name: EMAIL
+        description: "Primary email address of the customer."
+        tests:
+          - not_null
+      - name: Total_Invoices
+        description: "Count of invoices associated with the customer."
+        tests:
+          - not_null
+      - name: Total_Invoice_Amount
+        description: "Total monetary value across all invoices."
+        tests:
+          - not_null
+      - name: ticket_resolution_rate
+        description: "Ratio of resolved tickets to total tickets for the customer."
+        tests:
+          - not_null
+    
+# Additional columns can be documented similarly for a full 360 view of the customer.
